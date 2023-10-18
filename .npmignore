@@ -3,3 +3,4 @@ tsconfig.json
 package-lock.json
 .gitignore
 index.ts
+images

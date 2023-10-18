@@ -1,4 +1,4 @@
-![banner](/images/banner.png)
+![banner](./images/banner.png)
 
 # Info
 Server Query is built for Next JS server components (Recommended)

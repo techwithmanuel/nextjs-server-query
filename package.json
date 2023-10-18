@@ -1,6 +1,6 @@
 {
   "name": "nextjs-server-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A concise and efficient abstraction layer built on top of the Fetch API.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
