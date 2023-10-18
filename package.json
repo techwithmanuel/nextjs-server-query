@@ -1,0 +1,25 @@
+{
+  "name": "server-query",
+  "version": "0.0.1",
+  "description": "A concise and efficient abstraction layer built on top of the Fetch API.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup  index.ts --format cjs,esm --dts"
+  },
+  "keywords": [
+    "query",
+    "server",
+    "nextjs",
+    "fetch"
+  ],
+  "author": "Emmanuel Alozie",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  }
+}

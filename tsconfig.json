@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "noUncheckedIndexedAccess": true,
+      "noEmit": true
+    },
+    "lib": ["es2015"]
+  }
