@@ -23,7 +23,7 @@ npx create-next-app@latest
 ### 2. Import serverQuery
 
 ```tsx
-import { serverQuery } from "server-query";
+import { serverQuery } from "nextjs-server-query";
 ```
 
 ### 3. Set up a simple API
@@ -70,7 +70,7 @@ URL = http://localhost:3000
 If you're looking to use external urls we've also made provisions
 
 ```tsx
-import { externalServerQuery } from "server-query";
+import { externalServerQuery } from "nextjs-server-query";
 ```
 
 this will eliminate this stage but note that no url variable will be added before the url name
@@ -80,7 +80,7 @@ this will eliminate this stage but note that no url variable will be added befor
 This is a next js 13 project using the App Router and Tailwind CSS
 
 ```tsx
-import { serverQuery } from "@/query/server";
+import { serverQuery } from "nextjs-server-query";
 
 interface Post {
   userId: number;
