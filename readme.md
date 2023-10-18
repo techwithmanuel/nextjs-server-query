@@ -1,4 +1,4 @@
-![banner](/public/server-query-banner.svg)
+![banner](/public/banner.png)
 
 # Info
 Server Query is built for Next JS server components (Recommended)
