@@ -1,14 +1,45 @@
 <img src="./images/banner.png" alt="banner image"/>
 
+# New Updates
+
+- We gained a 155 downloads in less than a day 📈, huge thanks to the community
+- Data streaming now supported
+  ```tsx
+  import { streamServerQueryResponse } from "nextjs-server-query";
+  ```
+- Caching and `cacheInterval` not supported with `streamServerQueryResponse`
+- `externalServerQuery` has been replaced with a simpler and lighter approach, to replicate the functionality, use the `external` prop in `serverQuery`
+
+  ```tsx
+  import {serverQuery} from "nextjs-server-query"
+
+  export dafault async function App () {
+
+   const {data, isLoading, error} = serverQuery<T>({
+     ...,
+      external: true
+   })
+
+   return (
+     ...
+   )
+  }
+  ```
+
+- Nested Queries currently in development
+- Invalidate function in development
+
 # Info
+
 Server Query is built for Next JS server components (Recommended)
+
 - Not recommended for client side data fetching, libraries like react-query handle client-side data fetching better
-- Pages where serverQuery is to be used should be exporting an async function 
-     ```tsx
-     export default async function Page () {
-        ...
-     }
-     ```
+- Pages where serverQuery is to be used should be exporting an async function
+  ```tsx
+  export default async function Page () {
+     ...
+  }
+  ```
 - Caching, Caching intervals, Error & Loading States, provided
 - More updates and feaures coming soon.
 
@@ -67,10 +98,13 @@ This is variable will be added before any url/route you'll enter. If you're not 
 URL = http://localhost:3000
 ```
 
-If you're looking to use external urls we've also made provisions
+If you're looking to use external urls we've also made provisions, add the external prop and set it to true
 
 ```tsx
-import { externalServerQuery } from "nextjs-server-query";
+ const { data, isLoading, error } = await serverQuery<Post[]>({
+  ...,
+    external: true
+  });
 ```
 
 this will eliminate this stage but note that no url variable will be added before the url name
@@ -120,9 +154,10 @@ export default async function Home() {
 
 # Props
 
-| Props         | Types                       | Description                  |
-| ------------- | --------------------------- | ---------------------------- |
-| url           | RequestInfo or URL          | The URL of your API          |
-| params        | Request Init (optional)     | Request Object               |
-| cacheData     | boolean (false by default)  | Opt in to data caching       |
-| cacheInterval | number (20 mins by default) | interval before revalidating |
+| Props         | Types                       | Description                   |
+| ------------- | --------------------------- | ----------------------------- |
+| url           | RequestInfo or URL          | The URL of your API           |
+| params        | Request Init (optional)     | Request Object                |
+| cacheData     | boolean (false by default)  | Opt in to data caching        |
+| cacheInterval | number (20 mins by default) | interval before revalidating  |
+| external      | boolean (false by default)  | Opt in to using external urls |
