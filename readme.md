@@ -1,5 +1,19 @@
 <img src="./images/banner.png" alt="banner image"/>
 
+<div style="display: flex; justify-content: space-around;">
+
+[![NPM Version](https://img.shields.io/npm/v/nextjs-server-query.svg)](https://www.npmjs.com/package/nextjs-server-query)
+
+[![NPM Downloads](https://img.shields.io/npm/dt/nextjs-server-query.svg)](https://www.npmjs.com/package/nextjs-server-query)
+
+[![Github Repo Size](https://img.shields.io/github/repo-size/techwithmanuel/nextjs-server-query.svg)](https://github.com/techwithmanuel/nextjs-server-query)
+
+[![LICENSE](https://img.shields.io/npm/l/nextjs-server-query.svg)](https://github.com/techwithmanuel/nextjs-server-query/blob/master/LICENSE)
+
+[![Commit](https://img.shields.io/github/last-commit/techwithmanuel/nextjs-server-query.svg)](https://github.com/techwithmanuel/nextjs-server-query/commits/master)
+
+</div>
+
 # New Updates
 
 - We gained a 155 downloads in less than a day 📈, huge thanks to the community
@@ -7,11 +21,15 @@
   ```tsx
   import { streamServerQueryResponse } from "nextjs-server-query";
   ```
+  then add to your tsconfig.json
+  ```
+   "downlevelIteration": true
+  ```
 - Caching and `cacheInterval` not supported with `streamServerQueryResponse`
 - `externalServerQuery` has been replaced with a simpler and lighter approach, to replicate the functionality, use the `external` prop in `serverQuery`
 
   ```tsx
-  import {serverQuery} from "nextjs-server-query"
+  import { serverQuery } from "nextjs-server-query"
 
   export dafault async function App () {
 
