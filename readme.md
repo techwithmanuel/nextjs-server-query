@@ -14,9 +14,18 @@
 
 </div>
 
-# New Updates
+# Info
 
-- We gained a 155 downloads in less than a day 📈, huge thanks to the community
+Server Query is built for Next JS server components (Recommended)
+
+- Not recommended for client side data fetching, libraries like react-query handle client-side data fetching better
+- Pages where serverQuery is to be used should be exporting an async function
+  ```tsx
+  export default async function Page () {
+     ...
+  }
+  ```
+- Caching, Caching intervals, Error & Loading States, provided
 - Data streaming now supported
   ```tsx
   import { streamServerQueryResponse } from "nextjs-server-query";
@@ -44,21 +53,6 @@
   }
   ```
 
-- Nested Queries currently in development
-- Invalidate function in development
-
-# Info
-
-Server Query is built for Next JS server components (Recommended)
-
-- Not recommended for client side data fetching, libraries like react-query handle client-side data fetching better
-- Pages where serverQuery is to be used should be exporting an async function
-  ```tsx
-  export default async function Page () {
-     ...
-  }
-  ```
-- Caching, Caching intervals, Error & Loading States, provided
 - More updates and feaures coming soon.
 
 # Usage
@@ -148,6 +142,50 @@ export default async function Home() {
       method: "GET",
     },
   });
+
+  return (
+    <main className="space-y-5 px-5 max-w-sm mx-auto py-5">
+      {data?.map((post: Post, index: number) => {
+        return (
+          <div
+            className="border border-blue-600 bg-blue-100 rounded-xl p-5 space-y-3 text-blue-600"
+            key={index}
+          >
+            <h1 className="text-xl font-semibold">{post.title}</h1>
+            <p className="font-medium">{post.body}</p>
+            <p className="font-medium">User Id:{post.userId}</p>
+          </div>
+        );
+      })}
+      {isLoading && "Loading..."}
+      {error && "An error has occured"}
+    </main>
+  );
+}
+```
+
+OR using react's new `use()` hook you can achieve the same results
+
+```tsx
+import { serverQuery } from "nextjs-server-query";
+import { use } from "react";
+
+interface Post {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+export default function Home() {
+  const { data, isLoading, error } = use(
+    serverQuery<Post[]>({
+      url: "/api/posts",
+      params: {
+        method: "GET",
+      },
+    })
+  );
 
   return (
     <main className="space-y-5 px-5 max-w-sm mx-auto py-5">
